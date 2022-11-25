@@ -1,0 +1,88 @@
+/** @format */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* font */
+@font-face {
+  font-family: "Corben-Regular";
+  src: url("./assets/font/Corben/Corben-Regular.ttf");
+}
+@font-face {
+  font-family: "Corben-Bold";
+  src: url("./assets/font/Corben/Corben-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Coustard-Regular";
+  src: url("./assets/font/Coustard/Coustard-Regular.ttf");
+}
+@font-face {
+  font-family: "Coustard-Black";
+  src: url("./assets/font/Coustard/Coustard-Black.ttf");
+}
+
+@font-face {
+  font-family: "SawarabiMincho";
+  src: url("./assets/font/Sawarabi_Mincho/SawarabiMincho-Regular.ttf");
+}
+/* CrimsonText */
+@font-face {
+  font-family: "CrimsonText-Bold";
+  src: url("./assets/font/Crimson_Text/CrimsonText-Bold.ttf");
+}
+@font-face {
+  font-family: "CrimsonText-BoldItalic";
+  src: url("./assets/font/Crimson_Text/CrimsonText-BoldItalic.ttf");
+}
+@font-face {
+  font-family: "CrimsonText-Italic";
+  src: url("./assets/font/Crimson_Text/CrimsonText-Italic.ttf");
+}
+@font-face {
+  font-family: "CrimsonText-Regular";
+  src: url("./assets/font/Crimson_Text/CrimsonText-Regular.ttf");
+}
+@font-face {
+  font-family: "CrimsonText-SemiBold";
+  src: url("./assets/font/Crimson_Text/CrimsonText-SemiBold.ttf");
+}
+@font-face {
+  font-family: "CrimsonText-SemiBoldItalic";
+  src: url("./assets/font/Crimson_Text/CrimsonText-SemiBoldItalic.ttf");
+}
+/* DancingScript-Bold */
+@font-face {
+  font-family: "DancingScript-Bold";
+  src: url("./assets/font/Dancing_Script/DancingScript-Bold.ttf");
+}
+@font-face {
+  font-family: "DancingScript-Medium";
+  src: url("./assets/font/Dancing_Script/DancingScript-Medium.ttf");
+}
+@font-face {
+  font-family: "DancingScript-Regular";
+  src: url("./assets/font/Dancing_Script/DancingScript-Regular.ttf");
+}
+@font-face {
+  font-family: "DancingScript-SemiBold";
+  src: url("./assets/font/Dancing_Script/DancingScript-SemiBold.ttf");
+}
+/* Arvo-Bold */
+@font-face {
+  font-family: "Arvo-Bold";
+  src: url("./assets/font/Arvo/Arvo-Bold.ttf");
+}
+@font-face {
+  font-family: "Arvo-BoldItalic";
+  src: url("./assets/font/Arvo/Arvo-BoldItalic.ttf");
+}
+@font-face {
+  font-family: "Arvo-Italic";
+  src: url("./assets/font/Arvo/Arvo-Italic.ttf");
+}
+@font-face {
+  font-family: "Arvo-Regular";
+  src: url("./assets/font/Arvo/Arvo-Regular.ttf");
+}

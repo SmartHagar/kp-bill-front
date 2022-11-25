@@ -1,0 +1,10 @@
+/** @format */
+
+nav.user .active {
+  color: #ff2e3a;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #2eff8b;
+  /* text-decoration-color: #ff2e3a; */
+  text-underline-offset: 4px;
+}

@@ -24,6 +24,7 @@
     "react-router-dom": "^6.4.2",
     "react-select": "^5.5.8",
     "sweetalert2": "^11.6.5",
+    "swiper": "^8.4.5",
     "validator": "^13.7.0",
     "zustand": "^4.1.4"
   },

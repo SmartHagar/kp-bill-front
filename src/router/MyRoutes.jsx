@@ -30,6 +30,8 @@ import BarangUser from "../pages/users/barang/Barang";
 import NotFound from "../pages/Errors/NotFound";
 import Personal from "../pages/users/personal/Personal";
 import Checkout from "../pages/users/checkout/Checkout";
+import Tentang from "../pages/users/tentang/Tentang";
+import Galeri from "../pages/users/galeri/Galeri";
 
 const MyRoutes = () => {
   const navigate = useNavigate();
@@ -44,6 +46,8 @@ const MyRoutes = () => {
         <Route path="user" element={<IndexUser />}>
           <Route path="dashboard" element={<DashboardUser />} />
           <Route path="barang" element={<BarangUser />} />
+          <Route path="galeri" element={<Galeri />} />
+          <Route path="tentang-kami" element={<Tentang />} />
           <Route path="personal" element={<Personal />} />
           <Route path="checkout" element={<Checkout />} />
         </Route>

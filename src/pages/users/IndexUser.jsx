@@ -16,7 +16,9 @@ const IndexUser = () => {
         </div>
       </div>
       <div className="w-full">
-        <div className="border border-black">footer</div>
+        <div className="border border-gray-300">
+          <p className="p-2">Karamba 2022</p>
+        </div>
       </div>
     </div>
   );

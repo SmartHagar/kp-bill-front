@@ -3,9 +3,13 @@
 import React, { useEffect } from "react";
 import showRupiah from "../../../services/rupiah";
 import useKeranjangDet from "../../../store/crud/keranjang-det";
+import useOngkir from "../../../store/crud/ongkir";
+import usePembayaran from "../../../store/crud/pembayaran";
 const Checkout = () => {
   const { setKeranjangDet, dtKeranjangFinish, setKeranjangFinish } =
     useKeranjangDet();
+  const { dtPembayaran } = usePembayaran();
+  const { showOngkir, dtOngkir } = useOngkir();
   const keranjang_id = localStorage.getItem("keranjang_id");
 
   useEffect(() => {
@@ -65,6 +69,15 @@ const Checkout = () => {
     const jumlah = data.reduce((a, b) => a + b, 0);
     total = jumlah;
   };
+
+  // effect ongkir
+  const dt_pembeli = JSON.parse(localStorage.getItem("dt_pembeli"));
+
+  useEffect(() => {
+    if (dt_pembeli) {
+      showOngkir(dt_pembeli.kelurahan_id);
+    }
+  }, []);
   return (
     <div className="font-Arvo-Regular">
       <div>
@@ -93,7 +106,53 @@ const Checkout = () => {
               </tr>
             </thead>
 
-            <tbody className="divide-y divide-gray-200">{cartDetail()}</tbody>
+            <tbody className="divide-y divide-gray-200">
+              {cartDetail()}
+              <tr>
+                <td
+                  colSpan={4}
+                  className="whitespace-nowrap px-4 py-2 text-gray-700 text-right"
+                >
+                  Total Belanja
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                  {showRupiah(total)}
+                </td>
+              </tr>
+              <tr>
+                <td
+                  colSpan={4}
+                  className="whitespace-nowrap px-4 py-2 text-gray-700 text-right"
+                >
+                  Ongkir
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                  {dtOngkir.id && showRupiah(dtOngkir.harga)}
+                </td>
+              </tr>
+              <tr>
+                <td
+                  colSpan={4}
+                  className="whitespace-nowrap px-4 py-2 text-gray-700 text-right"
+                >
+                  Total Bayar
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                  {dtOngkir.id && showRupiah(dtOngkir.harga + total)}
+                </td>
+              </tr>
+              <tr>
+                <td
+                  colSpan={4}
+                  className="whitespace-nowrap px-4 py-2 text-gray-700 text-right"
+                >
+                  Status
+                </td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-700 uppercase">
+                  {dtPembayaran && dtPembayaran.status}
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
         {/* status pembayaran */}

@@ -40,6 +40,29 @@ const usePembayaran = create(
         };
       }
     },
+    getPembayaran: async (keranjang_id) => {
+      try {
+        const response = await crud({
+          method: "get",
+          url: `/pembayaran/${keranjang_id}`,
+          // headers: { Authorization: `Bearer ${getToken}` },
+          params: {
+            keranjang_id,
+          },
+        });
+        set((state) => ({ ...state, responses: response.data }));
+        set((state) => ({ ...state, dtPembayaran: response.data.data }));
+        return {
+          status: "berhasil",
+          data: response.data,
+        };
+      } catch (error) {
+        return {
+          status: "error",
+          error: error.response.data,
+        };
+      }
+    },
     addData: async (keranjang_id, total_belanja, harga_ongkir, status) => {
       try {
         const res = await crud({
@@ -87,21 +110,19 @@ const usePembayaran = create(
         };
       }
     },
-    updateData: async (id, nama) => {
-      // const getToken = JSON.parse(localStorage.getItem("token"));
+    updateData: async (id, row) => {
       try {
         const response = await crud({
           method: "put",
           url: `/pembayaran/${id}`,
-          // headers: { Authorization: `Bearer ${getToken}` },
-          data: { nama },
+          data: row,
         });
         set((state) => ({
           dtPembayaran: state.dtPembayaran.map((item) => {
             if (item.id === id) {
               return {
                 ...item,
-                nama,
+                ...response.data.data,
               };
             } else {
               return item;

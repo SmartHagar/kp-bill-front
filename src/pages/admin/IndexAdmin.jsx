@@ -22,10 +22,10 @@ const IndexAdmin = () => {
   return (
     <div>
       <div className="flex">
-        <div>
+        <div className="relative z-50">
           <Sidebar />
         </div>
-        <div className="w-full h-screen flex flex-col justify-between px-4">
+        <div className="w-full h-screen flex flex-col justify-between px-4 lg:ml-64">
           <Outlet />
           <div>Footer</div>
         </div>

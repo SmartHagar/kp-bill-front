@@ -186,7 +186,7 @@ const Cart = ({ dtKeranjangDet, dt_pembeli }) => {
               <p>Total Belanja</p>
               <p>{showRupiah(total)}</p>
             </div>
-            {dtOngkir ? (
+            {dtOngkir.id ? (
               <>
                 <div className="mt-0.5 text-sm text-gray-500 flex justify-between">
                   <p>Ongkos Kirim</p>

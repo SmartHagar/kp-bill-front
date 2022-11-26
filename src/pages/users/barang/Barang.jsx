@@ -10,12 +10,14 @@ import toastError from "../../../services/toast-error";
 import useBarang from "../../../store/crud/barang";
 import useKeranjang from "../../../store/crud/keranjang";
 import useKeranjangDet from "../../../store/crud/keranjang-det";
+import usePembayaran from "../../../store/crud/pembayaran";
 
 const Barang = () => {
   // store
   const { setBarang, dtBarang, responses } = useBarang();
   const { setKeranjang, addData } = useKeranjang();
   const { addDataDet } = useKeranjangDet();
+  const { getPembayaran } = usePembayaran();
   // state
   const [limit, setLimit] = useState(12);
   const [page, setPage] = useState(1);
@@ -23,12 +25,16 @@ const Barang = () => {
 
   // cek data diri
   const dt_pembeli = JSON.parse(localStorage.getItem("dt_pembeli"));
-
+  const keranjang_id = localStorage.getItem("keranjang_id");
   const handleCart = async (barang_id) => {
     if (!dt_pembeli) {
       return toastError(
         "Data diri tidak ada. Silahkan menambahkan data diri anda"
       );
+    }
+    const pembayaran = await getPembayaran(keranjang_id);
+    if (pembayaran.data.data && pembayaran.data.data.status !== "selesai") {
+      return toastError("Ada pembayan yang belum selesai.");
     }
     const { id } = dt_pembeli;
     // cek data keranjang
@@ -96,13 +102,13 @@ const Barang = () => {
             </p>
             <p className=" font-Arvo-Regular text-xs">{row.satuan}</p>
           </div>
-          {/* <button
+          <button
             className="w-full font-Arvo-Regular mt-2 text-biru border border-biru hover:bg-biborder-biru hover:text-white hover:bg-biru active:bg-biru capitalize text-xs px-6 py-2 rounded-full outline-none focus:outline-none ease-linear transition-all duration-150"
             type="button"
             onClick={() => handleCart(row.id)}
           >
             Tambahkan Keranjang
-          </button> */}
+          </button>
         </div>
       </div>
     ));

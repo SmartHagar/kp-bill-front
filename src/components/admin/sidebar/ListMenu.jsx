@@ -48,6 +48,11 @@ const ListMenu = () => {
         submenu: false,
         link: "/admin/barang",
       },
+      {
+        name: "pembayaran",
+        submenu: false,
+        link: "/admin/pembayaran",
+      },
     ]);
   }, []);
 
@@ -62,6 +67,9 @@ const ListMenu = () => {
       return <AiFillHdd />;
     }
     if (name === "barang") {
+      return <AiFillHdd />;
+    }
+    if (name === "pembayaran") {
       return <AiFillHdd />;
     }
   };

@@ -3,6 +3,7 @@
 import create from "zustand";
 import { devtools } from "zustand/middleware";
 import useUrl from "../services/base_url";
+import useKeranjang from "./crud/keranjang";
 
 const { auth, crud } = useUrl();
 
@@ -28,11 +29,23 @@ const useLogin = create(
 
         // cek data pembeli
         const cekDtPembeli = await crud.get(`/pembeli/${user.user_id}`);
-        if (cekDtPembeli.data) {
+        if (cekDtPembeli && cekDtPembeli.data.data) {
           localStorage.setItem(
             "dt_pembeli",
             JSON.stringify(cekDtPembeli.data.data)
           );
+          // cek keranjang_id
+          const pembeli_id = cekDtPembeli.data.data.id;
+          const cekKeranjang = await useKeranjang
+            .getState()
+            .setKeranjang(pembeli_id, "finish");
+          if (
+            cekKeranjang &&
+            cekKeranjang.data &&
+            cekKeranjang.data.data.length > 0
+          ) {
+            localStorage.setItem("keranjang_id", cekKeranjang.data.data[0].id);
+          }
         }
 
         return {

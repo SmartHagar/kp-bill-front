@@ -20,11 +20,11 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="hidden lg:flex mr-2 flex-col w-64 h-screen px-4 pb-9 pt-4 border-r shadow-lg">
+    <div className="hidden lg:flex mr-2 flex-col w-64 h-screen px-4 pb-9 pt-4 border-r shadow-lg fixed z-50 bg-white">
       <h2 className="text-2xl font-corben-bold border-b text-center font-semibold text-thirt ">
         Menu
       </h2>
-      <div className="flex flex-col justify-between flex-1 mt-6">
+      <div className="flex flex-col justify-between flex-1 mt-6 z-50">
         <ListMenu />
 
         <div className="flex items-center px-4 -mx-2">

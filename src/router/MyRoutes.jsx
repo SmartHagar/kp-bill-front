@@ -32,6 +32,7 @@ import Personal from "../pages/users/personal/Personal";
 import Checkout from "../pages/users/checkout/Checkout";
 import Tentang from "../pages/users/tentang/Tentang";
 import Galeri from "../pages/users/galeri/Galeri";
+import Pembayaran from "../pages/admin/pembayaran/Pembayaran";
 
 const MyRoutes = () => {
   const navigate = useNavigate();
@@ -67,6 +68,7 @@ const MyRoutes = () => {
             <Route path="ongkir" element={<Ongkir />} />
           </Route>
           <Route path="barang" element={<Barang />} />
+          <Route path="pembayaran" element={<Pembayaran />} />
         </Route>
 
         {/* not found */}

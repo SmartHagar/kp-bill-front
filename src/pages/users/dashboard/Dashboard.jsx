@@ -22,8 +22,8 @@ const Dashboard = () => {
   }, []);
   return (
     <div className="flex flex-col gap-2">
-      <h1 className="font-CrimsonText-Bold text-xl text-center text-biru">
-        Selamat datang di website penjualan ikan
+      <h1 className="font-CrimsonText-Bold text-2xl text-center text-biru">
+        Selamat datang di website Keramba
       </h1>
       <div>
         <Swiper

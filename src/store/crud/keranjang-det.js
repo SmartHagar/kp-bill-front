@@ -12,6 +12,7 @@ const { crud } = useUrl();
 const useKeranjangDet = create(
   devtools((set, get) => ({
     dtKeranjangDet: [],
+    dtKeranjangFinish: [],
     responses: [],
     setKeranjangDet: async (keranjang_id) => {
       try {
@@ -24,6 +25,27 @@ const useKeranjangDet = create(
         });
         set((state) => ({ ...state, responses: response.data }));
         set((state) => ({ ...state, dtKeranjangDet: response.data.data }));
+        return {
+          status: "berhasil",
+          data: response.data,
+        };
+      } catch (error) {
+        return {
+          status: "error",
+          error: error.response.data,
+        };
+      }
+    },
+    setKeranjangFinish: async (keranjang_id) => {
+      try {
+        const response = await crud({
+          method: "get",
+          url: `/keranjang-det`,
+          params: {
+            keranjang_id,
+          },
+        });
+        set((state) => ({ ...state, dtKeranjangFinish: response.data.data }));
         return {
           status: "berhasil",
           data: response.data,

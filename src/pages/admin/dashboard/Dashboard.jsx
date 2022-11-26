@@ -16,7 +16,7 @@ const Dashboard = () => {
         <TopBar judul="Halaman Dashboard" />
       </div>
       {/* container */}
-      <div>dashboard</div>
+      <div className="mt-5 font-Arvo-BoldItalic text-lg">Selamat Datang...</div>
     </motion.div>
   );
 };

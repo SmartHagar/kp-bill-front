@@ -154,7 +154,7 @@ const Cart = ({ dtKeranjangDet, dt_pembeli }) => {
         );
         if (status !== "error") {
           navigate("/user/checkout");
-          window.location.reload();
+          // window.location.reload();
         }
       }
     });

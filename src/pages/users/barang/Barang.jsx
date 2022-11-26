@@ -96,13 +96,13 @@ const Barang = () => {
             </p>
             <p className=" font-Arvo-Regular text-xs">{row.satuan}</p>
           </div>
-          <button
+          {/* <button
             className="w-full font-Arvo-Regular mt-2 text-biru border border-biru hover:bg-biborder-biru hover:text-white hover:bg-biru active:bg-biru capitalize text-xs px-6 py-2 rounded-full outline-none focus:outline-none ease-linear transition-all duration-150"
             type="button"
             onClick={() => handleCart(row.id)}
           >
             Tambahkan Keranjang
-          </button>
+          </button> */}
         </div>
       </div>
     ));

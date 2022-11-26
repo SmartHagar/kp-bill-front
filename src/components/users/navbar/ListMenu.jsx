@@ -36,6 +36,7 @@ const ListMenu = () => {
           link: "/user/tentang-kami",
         }
       );
+      setLinks(menu);
       const { data } = await getPembayaran(keranjang_id);
       if (data.data && data.data.status !== "selesai") {
         menu.push({
@@ -43,8 +44,8 @@ const ListMenu = () => {
           submenu: false,
           link: "/user/checkout",
         });
+        setLinks(menu);
       }
-      setLinks(menu);
     };
     cekMenu();
   }, [keranjang_id]);

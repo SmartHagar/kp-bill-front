@@ -39,6 +39,9 @@ module.exports = withMT({
         biru: "#2EA2FF",
         merah: "#FF2E3A",
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
     },
   },
   plugins: [],

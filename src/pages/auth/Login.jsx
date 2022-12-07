@@ -7,7 +7,7 @@ import validator from "validator";
 import toastError from "../../services/toast-error";
 import useLogin from "../../store/login";
 
-import bgLogin from "../../assets/images/bg-login.jpg";
+import bgLogin from "../../assets/images/bg-2.jpeg";
 
 const LoginPage = () => {
   // store

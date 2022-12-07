@@ -70,7 +70,7 @@ const Gambar = () => {
       />
       {/* title */}
       <div className="border-b py-2">
-        <TopBar judul="Halaman Distrik" />
+        <TopBar judul="Halaman Gambar" />
       </div>
       {/* container */}
       <div className="mt-3 font-SawarabiMincho mr-4">
@@ -78,10 +78,10 @@ const Gambar = () => {
         <div className="flex justify-between">
           <div>
             <h2 className="text-xl font-coustard-black text-my-gray">
-              Data distrik
+              Data gambar
             </h2>
             <p className="text-my-gray">
-              Silahkan menambah, mengubah dan menghapus data distrik
+              Silahkan menambah, mengubah dan menghapus data gambar
             </p>
           </div>
           <div>

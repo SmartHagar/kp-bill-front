@@ -11,6 +11,7 @@ import useBarang from "../../../store/crud/barang";
 import useKeranjang from "../../../store/crud/keranjang";
 import useKeranjangDet from "../../../store/crud/keranjang-det";
 import usePembayaran from "../../../store/crud/pembayaran";
+import { motion } from "framer-motion";
 
 const Barang = () => {
   // store
@@ -114,43 +115,49 @@ const Barang = () => {
     ));
 
   return (
-    <section className="text-gray-600 body-font">
-      <Toaster />
-      <div className="container px-5 mx-auto">
-        {/* tools data */}
-        <div className="flex justify-between flex-wrap mt-6 gap-3 md:gap-0 mb-6">
-          {/* cari data */}
-          <div className="md:w-2/3 lg:w-3/4 w-full">
-            <Input
-              label="Cari Data"
-              color="blue"
-              onChange={(e) => setSearch(e.target.value)}
-            />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <section className="text-gray-600 body-font">
+        <Toaster />
+        <div className="container px-5 mx-auto">
+          {/* tools data */}
+          <div className="flex justify-between flex-wrap mt-6 gap-3 md:gap-0 mb-6">
+            {/* cari data */}
+            <div className="md:w-2/3 lg:w-3/4 w-full">
+              <Input
+                label="Cari Data"
+                color="blue"
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+            {/* tampilkan data */}
+            <div>
+              <Select
+                onChange={(e) => setLimit(e)}
+                variant="outlined"
+                color="blue"
+                label="Tampilkan"
+              >
+                <Option value="5">5</Option>
+                <Option value="10">10</Option>
+                <Option value="15">15</Option>
+                <Option value="20">20</Option>
+              </Select>
+            </div>
           </div>
-          {/* tampilkan data */}
-          <div>
-            <Select
-              onChange={(e) => setLimit(e)}
-              variant="outlined"
-              color="blue"
-              label="Tampilkan"
-            >
-              <Option value="5">5</Option>
-              <Option value="10">10</Option>
-              <Option value="15">15</Option>
-              <Option value="20">20</Option>
-            </Select>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {card()}
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {card()}
+        {/* paginate */}
+        <div className="my-3 mt-5 flex justify-center">
+          <Paginate pageData={responses} setPage={setPage} />
         </div>
-      </div>
-      {/* paginate */}
-      <div className="my-3 mt-5 flex justify-center">
-        <Paginate pageData={responses} setPage={setPage} />
-      </div>
-    </section>
+      </section>
+    </motion.div>
   );
 };
 

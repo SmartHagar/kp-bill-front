@@ -5,7 +5,6 @@ import useApiGambar from "../../../store/api/gambar";
 import { motion } from "framer-motion";
 import { HiArrowSmLeft, HiArrowSmRight, HiOutlineX } from "react-icons/hi";
 import "./style.css";
-
 const Galeri = () => {
   // store
   const { setGambar, dtGambar } = useApiGambar();
@@ -35,7 +34,11 @@ const Galeri = () => {
   };
   const showImages = () => {
     return (
-      <div>
+      <motion.div
+        initial={{ x: 300, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: -300, opacity: 0 }}
+      >
         {/* card */}
         <div className="flex flex-wrap -m-1 md:-m-2 justify-center">
           {dtGambar &&
@@ -55,7 +58,7 @@ const Galeri = () => {
               </div>
             ))}
         </div>
-      </div>
+      </motion.div>
     );
   };
 

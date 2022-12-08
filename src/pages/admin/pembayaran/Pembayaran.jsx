@@ -100,7 +100,9 @@ const Pembayaran = () => {
             <h2 className="text-xl font-coustard-black text-my-gray">
               Data Pembayaran
             </h2>
-            <p className="text-my-gray">Silahkan mengubah data Pembayaran</p>
+            <p className="text-my-gray">
+              Silahkan mengubah dan menghapus data Pembayaran
+            </p>
           </div>
           {/* <div>
             <button
@@ -151,7 +153,6 @@ const Pembayaran = () => {
               setDelete={handleDelete}
               page={page}
               limit={limit}
-              btn_delete={false}
             />
           </div>
           {/* paginate */}

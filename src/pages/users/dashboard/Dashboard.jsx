@@ -3,6 +3,7 @@
 import React from "react";
 import { useEffect } from "react";
 import useApiGambar from "../../../store/api/gambar";
+import { motion } from "framer-motion";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,7 +22,12 @@ const Dashboard = () => {
     setGambar("slide");
   }, []);
   return (
-    <div className="flex flex-col gap-2">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="flex flex-col gap-2"
+    >
       <h1 className="font-CrimsonText-Bold text-2xl text-center text-biru">
         Selamat datang di website Keramba
       </h1>
@@ -53,7 +59,7 @@ const Dashboard = () => {
             ))}
         </Swiper>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

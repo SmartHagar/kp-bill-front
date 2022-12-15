@@ -5,9 +5,9 @@ import { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import validator from "validator";
 
-import bgLogin from "../../assets/images/bg-login.jpg";
 import toastError from "../../services/toast-error";
 import useRegister from "../../store/register";
+import bgLogin from "../../assets/images/bg-3.jpeg";
 
 const Register = () => {
   // store

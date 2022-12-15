@@ -25,8 +25,22 @@ const useOngkir = create(
           },
         });
 
+        const { data } = response.data;
+        // sort by nama kelurahan
+        function compare(a, b) {
+          if (a.kelurahan.nama < b.kelurahan.nama) {
+            return -1;
+          }
+          if (a.kelurahan.nama > b.kelurahan.nama) {
+            return 1;
+          }
+          return 0;
+        }
+
+        data.sort(compare);
+
         set((state) => ({ ...state, responses: response.data }));
-        set((state) => ({ ...state, dtOngkir: response.data.data }));
+        set((state) => ({ ...state, dtOngkir: data }));
         return {
           status: "berhasil",
           data: response.data,

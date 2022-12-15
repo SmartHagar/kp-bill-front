@@ -144,6 +144,7 @@ const Pembayaran = () => {
         {/* tabel n paginate data */}
         <div className="flex flex-col gap-3">
           {/* tabel */}
+          {console.log(dtPembayaran)}
           <div>
             <Table
               headers={headers}

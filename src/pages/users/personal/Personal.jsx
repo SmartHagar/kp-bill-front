@@ -39,6 +39,12 @@ const Personal = () => {
     if (!user_login) {
       navigate("/auth/login");
     }
+    if (user_login) {
+      const { role } = user_login;
+      if (role === "admin") {
+        navigate("/admin/dashboard");
+      }
+    }
     // cek data pembeli
     if (dt_pembeli) {
       setNIK(dt_pembeli.NIK);
